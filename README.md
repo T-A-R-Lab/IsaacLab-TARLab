@@ -74,6 +74,17 @@ Once installation is complete and the environment is activated, you can run the 
 
 This command should be executed from the root of the repository.
 
+### Modifying the tree group
+In case you want to modify the Tree Group, ideally it has to be maintained as only one mesh (due to limitations of IsaacLab). So, this should be handled opening the TreeGroup in IsaacSim, opening isaacsim selector in /home/isaacsim (where isaacsim should have been installed according to the tutorial) with the following command:
+
+```bash
+./isaacsim.selector.sh
+```
+Then, we open the usd file of the TreeGroup (importing if the file type is different than usd) that is located in:
+  source/isaaclab_assets/isaaclab_assets/props/TreeGroup_1.usd
+
+Then, we can add a new tree, importing it or dragging it from the file explorer with the mouse into isaac sim. Then, after we select all the meshes we want to be a single mesh, we export everything as a .glb file (to export it as a single mesh). We then can import that opening isaacsim again and from the import menu we select "merge static meshes", that will allow us to have only one big mesh of the entire group. With the .glb mesh imported and converted into a single mesh, finally we export it to be a usd file into a file called for example "TreeGroup_3_2", where that would mean that it has 3 eucalyptus and 2 Pines.
+
 ## License
 
 The Isaac Lab framework is released under [BSD-3 License](LICENSE). The `isaaclab_mimic` extension and its
