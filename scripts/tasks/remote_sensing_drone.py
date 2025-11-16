@@ -53,10 +53,8 @@ logging.getLogger('omni.usd').setLevel(logging.CRITICAL)
 from isaaclab.assets import AssetBaseCfg
 from isaaclab.assets.articulation.articulation_cfg import ArticulationCfg
 from isaaclab_assets.robots.quadcopter_gimbal_lidar import CRAZYFLIE_GIMBAL_LIDAR_CFG, LIDAR_RAYCASTER_CFG
-import isaacsim.core.utils.prims as prim_utils
 
 import isaaclab.sim as sim_utils
-from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
 from isaaclab.scene import InteractiveScene, InteractiveSceneCfg
 
 
