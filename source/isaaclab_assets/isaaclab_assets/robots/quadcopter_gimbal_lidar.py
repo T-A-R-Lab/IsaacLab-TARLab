@@ -7,6 +7,8 @@
 
 from __future__ import annotations
 
+import os
+
 import isaaclab.sim as sim_utils
 from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets import ArticulationCfg
@@ -16,10 +18,15 @@ from isaaclab.sensors import RayCasterCfg, patterns
 # Configuration
 ##
 
+# Get the absolute path to the USD file
+ISAACLAB_ASSETS_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+USD_FILE_PATH_CRAZYFLIE = os.path.join(ISAACLAB_ASSETS_DIR, "robots/models/cf2x_gimbal_lidar_3DOF.usd")
+
+
 CRAZYFLIE_GIMBAL_LIDAR_CFG = ArticulationCfg(
     prim_path="{ENV_REGEX_NS}/Robot",
     spawn=sim_utils.UsdFileCfg(
-        usd_path="${workspaceFolder}/source/isaaclab_assets/isaaclab_assets/robots/models/cf2x_gimbal_lidar_3DOF.usd",
+        usd_path=USD_FILE_PATH_CRAZYFLIE,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
             max_depenetration_velocity=10.0,
