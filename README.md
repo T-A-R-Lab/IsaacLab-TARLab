@@ -7,9 +7,6 @@
 [![IsaacSim](https://img.shields.io/badge/IsaacSim-5.0.0-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html)
 [![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://docs.python.org/3/whatsnew/3.11.html)
 [![Linux platform](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/22.04/)
-[![Windows platform](https://img.shields.io/badge/platform-windows--64-orange.svg)](https://www.microsoft.com/en-us/)
-[![pre-commit](https://img.shields.io/github/actions/workflow/status/isaac-sim/IsaacLab/pre-commit.yaml?logo=pre-commit&logoColor=white&label=pre-commit&color=brightgreen)](https://github.com/isaac-sim/IsaacLab/actions/workflows/pre-commit.yaml)
-[![docs status](https://img.shields.io/github/actions/workflow/status/isaac-sim/IsaacLab/docs.yaml?label=docs&color=brightgreen)](https://github.com/isaac-sim/IsaacLab/actions/workflows/docs.yaml)
 [![License](https://img.shields.io/badge/license-BSD--3-yellow.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![License](https://img.shields.io/badge/license-Apache--2.0-yellow.svg)](https://opensource.org/license/apache-2-0)
 
@@ -37,76 +34,45 @@ Isaac Lab offers a comprehensive set of tools and environments designed to facil
 
 ## Getting Started
 
-### Documentation
+### Prerequisites
 
-Our [documentation page](https://isaac-sim.github.io/IsaacLab) provides everything you need to get started, including
-detailed tutorials and step-by-step guides. Follow these links to learn more about:
+- **Operating System**: Ubuntu 22.04 or Ubuntu 24.04
+  - Ubuntu 24.04 is recommended if you plan to work with LiDAR and drones, as the PX4 repository with LiDAR support requires Ubuntu 24.04
+- **ROS2 Distribution**: Jazzy
+  - [Installation guide for ROS2 Jazzy](https://docs.ros.org/en/jazzy/Installation.html)
 
-- [Installation steps](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html#local-installation)
-- [Reinforcement learning](https://isaac-sim.github.io/IsaacLab/main/source/overview/reinforcement-learning/rl_existing_scripts.html)
-- [Tutorials](https://isaac-sim.github.io/IsaacLab/main/source/tutorials/index.html)
-- [Available environments](https://isaac-sim.github.io/IsaacLab/main/source/overview/environments.html)
+### Installation
 
+1. **Install Isaac Sim and Isaac Lab**
+   
+   Follow the [official binaries installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html#isaaclab-binaries-installation).
+   
+   **Note**: You don't need to clone the IsaacLab repository separately since you already have this fork. Continue with the other instructions such as creating a virtual environment with uv and installing dependencies.
 
-## Isaac Sim Version Dependency
+2. **Install Isaac Lab dependencies**
+   
+   From the root of the repository, run:
+   ```bash
+   ./isaaclab.sh --install  # or "./isaaclab.sh -i"
+   ```
+   
+   When prompted, select: **directRL + PPO + AMP**
 
-Isaac Lab is built on top of Isaac Sim and requires specific versions of Isaac Sim that are compatible with each
-release of Isaac Lab. Below, we outline the recent Isaac Lab releases and GitHub branches and their corresponding
-dependency versions for Isaac Sim.
+3. **Activate the virtual environment**
+   
+   ```bash
+   source ./env_isaaclab/bin/activate  # or "source ./my_env/bin/activate"
+   ```
 
-| Isaac Lab Version             | Isaac Sim Version   |
-| ----------------------------- | ------------------- |
-| `main` branch                 | Isaac Sim 4.5 / 5.0 |
-| `v2.2.X`                      | Isaac Sim 4.5 / 5.0 |
-| `v2.1.X`                      | Isaac Sim 4.5       |
-| `v2.0.X`                      | Isaac Sim 4.5       |
+### Running the Remote Sensing Script
 
+Once installation is complete and the environment is activated, you can run the remote sensing drone script:
 
-## Contributing to Isaac Lab
+```bash
+./isaaclab.sh -p scripts/tasks/remote_sensing_drone.py
+```
 
-We wholeheartedly welcome contributions from the community to make this framework mature and useful for everyone.
-These may happen as bug reports, feature requests, or code contributions. For details, please check our
-[contribution guidelines](https://isaac-sim.github.io/IsaacLab/main/source/refs/contributing.html).
-
-## Show & Tell: Share Your Inspiration
-
-We encourage you to utilize our [Show & Tell](https://github.com/isaac-sim/IsaacLab/discussions/categories/show-and-tell)
-area in the `Discussions` section of this repository. This space is designed for you to:
-
-* Share the tutorials you've created
-* Showcase your learning content
-* Present exciting projects you've developed
-
-By sharing your work, you'll inspire others and contribute to the collective knowledge
-of our community. Your contributions can spark new ideas and collaborations, fostering
-innovation in robotics and simulation.
-
-## Troubleshooting
-
-Please see the [troubleshooting](https://isaac-sim.github.io/IsaacLab/main/source/refs/troubleshooting.html) section for
-common fixes or [submit an issue](https://github.com/isaac-sim/IsaacLab/issues).
-
-For issues related to Isaac Sim, we recommend checking its [documentation](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/overview.html)
-or opening a question on its [forums](https://forums.developer.nvidia.com/c/agx-autonomous-machines/isaac/67).
-
-## Support
-
-* Please use GitHub [Discussions](https://github.com/isaac-sim/IsaacLab/discussions) for discussing ideas,
-  asking questions, and requests for new features.
-* Github [Issues](https://github.com/isaac-sim/IsaacLab/issues) should only be used to track executable pieces of
-  work with a definite scope and a clear deliverable. These can be fixing bugs, documentation issues, new features,
-  or general updates.
-
-## Connect with the NVIDIA Omniverse Community
-
-Do you have a project or resource you'd like to share more widely? We'd love to hear from you!
-Reach out to the NVIDIA Omniverse Community team at OmniverseCommunity@nvidia.com to explore opportunities
-to spotlight your work.
-
-You can also join the conversation on the [Omniverse Discord](https://discord.com/invite/nvidiaomniverse) to
-connect with other developers, share your projects, and help grow a vibrant, collaborative ecosystem
-where creativity and technology intersect. Your contributions can make a meaningful impact on the Isaac Lab
-community and beyond!
+This command should be executed from the root of the repository.
 
 ## License
 
