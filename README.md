@@ -49,20 +49,28 @@ Isaac Lab offers a comprehensive set of tools and environments designed to facil
    
    **Note**: You don't need to clone the IsaacLab repository separately since you already have this fork. Continue with the other instructions such as creating a virtual environment with uv and installing dependencies.
 
-2. **Install Isaac Lab dependencies**
+2. **Create the symbolic link to isaacsim**
+```bash
+cd IsaacLab
+# This assumes you installed isaacsim from pre-built binaries
+ln -s ${HOME}/isaacsim _isaac_sim
+```
+
+3. **Create and Activate the virtual environment**
+   
+   ```bash
+   ./isaaclab.sh --uv  # This will create a virtual environment with the name env_isaaclab
+   source ./env_isaaclab/bin/activate
+   ```
+
+4. **Install Isaac Lab dependencies**
    
    From the root of the repository, run:
    ```bash
    ./isaaclab.sh --install  # or "./isaaclab.sh -i"
    ```
-   
-   When prompted, select: **directRL + PPO + AMP**
 
-3. **Activate the virtual environment**
-   
-   ```bash
-   source ./env_isaaclab/bin/activate  # or "source ./my_env/bin/activate"
-   ```
+
 
 ### Running the Remote Sensing Script
 
